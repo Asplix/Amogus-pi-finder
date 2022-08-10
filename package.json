@@ -1,0 +1,22 @@
+{
+  "name": "amogus-pi-finder",
+  "version": "1.0.0",
+  "description": "FInd amogus in the binary version of the first 10 millions digits of pi\r https://twitter.com/hourly_shitpost/status/1556792412000948224",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asplix/Amogus-pi-finder.git"
+  },
+  "author": "asplxi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asplix/Amogus-pi-finder/issues"
+  },
+  "homepage": "https://github.com/Asplix/Amogus-pi-finder#readme",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
