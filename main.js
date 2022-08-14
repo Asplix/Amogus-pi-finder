@@ -2,55 +2,43 @@ const fs = require('fs');
 const chalk = require('chalk')
 
 fs.readFile('./pi-bin.txt', 'utf8', (err, data) => {
-    let a = 0
-    let p = 0
+    let a = 0;
+    let p = 0;
     let b = a
 
-
     while (p == 0) {
-
-        if (JSON.stringify([data[a], data[a + 1], data[a + 2], data[a + 3]]) == a1) {
+        if (JSON.stringify([data[a], data[a + 1], data[a + 2], data[a + 3]]) == pattern[0]) {
             console.log(dec_to_chalkb([data[a], data[a + 1], data[a + 2], data[a + 3]]))
-        }else{
-            console.log(dec_to_chalk([data[a], data[a + 1], data[a + 2], data[a + 3]]))
-        }
-        
-
-        if (JSON.stringify([data[a], data[a + 1], data[a + 2], data[a + 3]]) == a1) {
-            a = a + 4
+            a = a + pattern.length;
             b = a
-
-            if (JSON.stringify([data[b], data[b + 1], data[b + 2], data[b + 3]]) == a2) {
-                console.log(dec_to_chalkb([data[b], data[b + 1], data[b + 2], data[b + 3]]))
-                b = b + 4
-
-                if (JSON.stringify([data[b], data[b + 1], data[b + 2], data[b + 3]]) == a3) {
+            for (let i = 1; i < pattern.length; i++) {
+                if (JSON.stringify([data[b], data[b + 1], data[b + 2], data[b + 3]]) == pattern[i]) {
                     console.log(dec_to_chalkb([data[b], data[b + 1], data[b + 2], data[b + 3]]))
-                    b = b + 4
-
-                    if (JSON.stringify([data[b], data[b + 1], data[b + 2], data[b + 3]]) == a4) {
-                        console.log(dec_to_chalkb([data[b], data[b + 1], data[b + 2], data[b + 3]]))
+                    b = b + pattern.length
+                    if (i + 1 == pattern.length) {
+                        p = 1
                         console.log(a)
-                        p = p+1
-                        
                     }
+                } else {
+                    i = pattern.length
                 }
             }
+        } else {
+            console.log(dec_to_chalk([data[a], data[a + 1], data[a + 2], data[a + 3]]))
+            a = a + 4
         }
 
-        if (data[a+4] == undefined) {
+        if (data[a + 4] == undefined) {
             p = p + 1
-        }else{a = a + 4}
+        }
     }
-
-
-
-});
-const a1 = JSON.stringify(['0', '1', '1', '1'])
-const a2 = JSON.stringify(['1', '1', '0', '0'])
-const a3 = JSON.stringify(['1', '1', '1', '1'])
-const a4 = JSON.stringify(['0', '1', '0', '1'])
-
+})
+const pattern = [
+    JSON.stringify(['0', '1', '1', '1']),
+    JSON.stringify(['1', '1', '0', '0']),
+    JSON.stringify(['1', '1', '1', '1']),
+    JSON.stringify(['0', '1', '0', '1'])
+]
 
 function dec_to_chalk(aaa) {
     let v = ``
@@ -75,5 +63,3 @@ function dec_to_chalkb(aaa) {
     }
     return g
 }
-
-
